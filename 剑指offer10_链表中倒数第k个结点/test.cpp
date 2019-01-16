@@ -51,6 +51,22 @@ public:
 		}
 		return pre;
 	}
+
+	ListNode* ReverseList1(ListNode* pHead){
+		//定义三个指针
+		ListNode* pre = pHead;
+		ListNode* cur = pHead;
+		ListNode* nPhead = nullptr;
+		while (nullptr != cur){
+			pre = cur;
+			cur = cur->next;
+			//头插放入新的链表中
+			pre->next = nPhead;
+			nPhead = pre;
+		}
+		return nPhead;
+	}
+
 	~Solution(){
 		ListNode* cur = _phead;
 		while (cur){
