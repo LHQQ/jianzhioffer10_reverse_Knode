@@ -91,6 +91,22 @@ public:
 		return head;
 	}
 
+	//第三种方法：只使用两个指针
+	ListNode* ReverseList3(ListNode* pHead){
+		if (nullptr == pHead || nullptr == pHead->next){
+			return pHead;
+			//没有节点或者只有一个节点的情况
+		}
+		ListNode* p = pHead->next;
+		ListNode* q = nullptr;
+		while (p->next){
+			q = p->next;
+			p->next = q->next;
+			q->next = pHead->next;
+			pHead->next = q;
+		}
+	}
+
 	~Solution(){
 		ListNode* cur = _phead;
 		while (cur){
