@@ -1,4 +1,6 @@
 #include<iostream>
+#include<stack>
+
 #include<assert.h>
 #include<list>
 
@@ -42,7 +44,7 @@ public:
 			cur = cur->next;
 			++count;
 		}
-		if (count < k&&cur==nullptr){
+		if (count < k&&cur == nullptr){
 			return nullptr;
 		}
 		while (cur != nullptr){
@@ -65,6 +67,28 @@ public:
 			nPhead = pre;
 		}
 		return nPhead;
+	}
+
+	ListNode* ReverseList2(ListNode* pHead) {
+
+		if (pHead == NULL || pHead->next == NULL)
+			return pHead;
+		ListNode* p = pHead;
+		stack<ListNode* > s;
+		while (p->next)
+		{
+			s.push(p);
+			p = p->next;
+		}
+		ListNode* head = p;
+		while (!s.empty())
+		{
+			p->next = s.top();
+			p = p->next;
+			s.pop();
+		}
+		p->next = NULL;
+		return head;
 	}
 
 	~Solution(){
@@ -113,7 +137,7 @@ void TestFunc2(){
 	}
 	cout << endl;
 	cout <<"逆转后的链表为："<< endl;
-	cur = s1.ReverseList1(s1._phead);
+	cur = s1.ReverseList2(s1._phead);
 	while (cur){
 		cout << cur->val << "-->";
 		cur = cur->next;
