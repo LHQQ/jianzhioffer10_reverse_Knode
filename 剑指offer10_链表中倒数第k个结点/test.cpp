@@ -63,7 +63,8 @@ public:
 	ListNode* _phead;
 };
 
-int main(){
+
+void TestFunc(){
 	Solution s1;
 	//先创建链表
 	s1.PushFront(1);
@@ -77,6 +78,24 @@ int main(){
 	//找倒数第三个，应该是3；
 	cout << "倒数第k个结点为:";
 	cout << cur->val << " " << endl;
+}
+
+int main(){
+
+	TestFunc();
+	//Solution s1;
+	////先创建链表
+	//s1.PushFront(1);
+	//s1.PushFront(2);
+	//s1.PushFront(3);
+	//s1.PushFront(4);
+	//s1.PushFront(5);
+
+	////找倒数第k个结点
+	//ListNode* cur = s1.FindKthToTail(s1._phead, 3);
+	////找倒数第三个，应该是3；
+	//cout << "倒数第k个结点为:";
+	//cout << cur->val << " " << endl;
 
 	system("pause");
 	return 0;
