@@ -64,6 +64,13 @@ public:
 };
 
 int main(){
+	Solution s1;
+	//先创建链表
+	s1.PushFront(1);
+	s1.PushFront(2);
+	s1.PushFront(3);
+	s1.PushFront(4);
+	s1.PushFront(5);
 
 	system("pause");
 	return 0;
