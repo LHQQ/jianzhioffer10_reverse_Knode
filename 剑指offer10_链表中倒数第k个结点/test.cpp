@@ -105,6 +105,13 @@ public:
 			q->next = pHead->next;
 			pHead->next = q;
 		}
+		//出了循环之后p指向链表的最后一个节点，此时链表顺序为51234
+		//所以要将phead的结点接到p之后
+		ListNode* cur = pHead;
+		pHead = cur->next;
+		cur->next = nullptr;
+		p->next = cur;
+		return pHead;
 	}
 
 	~Solution(){
@@ -118,6 +125,33 @@ public:
 public:
 	ListNode* _phead;
 };
+
+
+void TestFunc3(){
+	Solution s3;
+	//先创建链表
+	s3.PushFront(1);
+	s3.PushFront(2);
+	s3.PushFront(3);
+	s3.PushFront(4);
+	s3.PushFront(5);
+	ListNode* cur = nullptr;
+	cout << "逆转前的单链表为：";
+	cur = s3._phead;
+	while (cur){
+		cout << cur->val << "-->";
+		cur = cur->next;
+	}
+	cout << endl;
+	cur = s3.ReverseList3(s3._phead);
+	cout << "逆转后的单链表为：";
+	while (cur){
+		cout << cur->val << "-->";
+		cur = cur->next;
+	}
+	cout << endl;
+	
+}
 
 
 void TestFunc(){
@@ -162,7 +196,7 @@ void TestFunc2(){
 
 int main(){
 
-	TestFunc2();
+	TestFunc3();
 	//Solution s1;
 	////先创建链表
 	//s1.PushFront(1);
