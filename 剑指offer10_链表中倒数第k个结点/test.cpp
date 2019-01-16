@@ -96,9 +96,33 @@ void TestFunc(){
 	cout << cur->val << " " << endl;
 }
 
+void TestFunc2(){
+	Solution s1;
+	ListNode* cur = nullptr;
+	//先创建链表
+	s1.PushFront(1);
+	s1.PushFront(2);
+	s1.PushFront(3);
+	s1.PushFront(4);
+	s1.PushFront(5);
+	cur = s1._phead;
+	cout << "逆转前的链表为：" << endl;
+	while (cur){
+		cout << cur->val << "-->";
+		cur = cur->next;
+	}
+	cout << endl;
+	cout <<"逆转后的链表为："<< endl;
+	cur = s1.ReverseList1(s1._phead);
+	while (cur){
+		cout << cur->val << "-->";
+		cur = cur->next;
+	}
+}
+
 int main(){
 
-	TestFunc();
+	TestFunc2();
 	//Solution s1;
 	////先创建链表
 	//s1.PushFront(1);
