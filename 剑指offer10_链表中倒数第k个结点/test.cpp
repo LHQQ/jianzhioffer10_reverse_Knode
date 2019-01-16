@@ -72,6 +72,12 @@ int main(){
 	s1.PushFront(4);
 	s1.PushFront(5);
 
+	//找倒数第k个结点
+	ListNode* cur = s1.FindKthToTail(s1._phead, 3);
+	//找倒数第三个，应该是3；
+	cout << "倒数第k个结点为:";
+	cout << cur->val << " " << endl;
+
 	system("pause");
 	return 0;
 }
